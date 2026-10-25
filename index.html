@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100e07">
+<title>AAKASH SHARMA | Cricket Channel</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --gold: #ffbd08;
+  --gold2: #e8a900;
+  --bg: #100e07;
+  --muted: #858078;
+}
+
+body {
+  background: var(--bg);
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.ticker {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  background: linear-gradient(90deg,#ffca16,#f4ad00);
+  color: #171108;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 4px;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 17s linear infinite;
+}
+
+.ticker-track span {
+  padding-right: 38px;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+main {
+  width: 100%;
+  max-width: 480px;
+  margin: auto;
+  min-height: calc(100vh - 48px);
+  padding: 34px 20px 28px;
+  text-align: center;
+  position: relative;
+  background:
+    linear-gradient(rgba(255,193,7,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,193,7,.045) 1px,transparent 1px),
+    radial-gradient(ellipse at 50% 30%,#29200b 0%,#100e07 65%);
+  background-size: 65px 65px,65px 65px,auto;
+  border-left: 1px solid #25200f;
+  border-right: 1px solid #25200f;
+}
+
+.live {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 11px 19px;
+  border: 1px solid #6d5718;
+  border-radius: 30px;
+  color: #f8cb49;
+  background: rgba(255,193,7,.055);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  max-width: 100%;
+}
+
+.live-dot {
+  height: 10px;
+  width: 10px;
+  flex: 0 0 10px;
+  border-radius: 50%;
+  background: #00d875;
+  box-shadow: 0 0 12px #00d875;
+}
+
+.logo-wrap {
+  width: 145px;
+  height: 145px;
+  margin: 35px auto 22px;
+  padding: 5px;
+  border: 4px solid #e9b500;
+  border-radius: 35%;
+  background: #16130c;
+  box-shadow: 0 0 28px rgba(255,190,0,.19);
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+}
+
+.logo-wrap img {
+  width: 100%;
+  height: 100%;
+  border-radius: 30%;
+  object-fit: cover;
+  display: block;
+}
+
+.logo-dot {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  right: -7px;
+  bottom: -4px;
+  background: #00d875;
+  border: 4px solid #101008;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #00d875;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+h1 {
+  font-size: clamp(38px, 12vw, 62px);
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: 1px;
+  overflow-wrap: anywhere;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: var(--gold);
+  font-size: 31px;
+  font-weight: 900;
+  letter-spacing: 8px;
+}
+
+.join-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  width: 100%;
+  min-height: 68px;
+  margin: 39px auto 20px;
+  padding: 17px 12px;
+  border-radius: 27px;
+  border: 1px solid #ffdb57;
+  background: linear-gradient(110deg,#ffcb16,#eaa400);
+  color: #100d06;
+  text-decoration: none;
+  font-size: clamp(14px, 4vw, 19px);
+  font-weight: 900;
+  letter-spacing: 1.1px;
+  box-shadow: 0 8px 28px rgba(255,187,0,.2);
+  animation: buttonFloat 2.5s ease-in-out infinite;
+}
+
+.join-btn svg {
+  width: 31px;
+  height: 31px;
+  flex-shrink: 0;
+}
+
+@keyframes buttonFloat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.redirect {
+  color: #b6b0a4;
+  font-size: 14px;
+  margin-bottom: 36px;
+}
+
+#countdown {
+  color: #ffd04a;
+  font-weight: 900;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #eac044;
+  margin: 0 auto 34px;
+  max-width: 300px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: #4a3a15;
+}
+
+.trophy {
+  font-size: 27px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.stat {
+  min-width: 0;
+  padding: 20px 5px 17px;
+  background: rgba(18,17,15,.88);
+  border: 1px solid #39301c;
+  border-radius: 23px;
+}
+
+.stat strong {
+  display: block;
+  color: #ffcf42;
+  font-size: clamp(20px,6vw,29px);
+  margin-bottom: 8px;
+}
+
+.stat strong.green {
+  color: #00d875;
+  font-size: clamp(19px,5.5vw,27px);
+}
+
+.stat small {
+  display: block;
+  color: #77716a;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 27px;
+}
+
+.feature {
+  padding: 12px 14px;
+  color: #d8d0bd;
+  background: rgba(255,193,7,.055);
+  border: 1px solid #57451b;
+  border-radius: 15px;
+  font-size: 13px;
+}
+
+.feature b {
+  color: #ffcc37;
+  margin-right: 5px;
+}
+
+.bottom-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  color: #827c70;
+  font-size: 12px;
+  text-align: left;
+}
+
+.active-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: #ffc21a;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+
+.verified {
+  color: #b3aa93;
+  white-space: nowrap;
+}
+
+.verified b {
+  color: #ffd04a;
+}
+
+.disclaimer {
+  margin-top: 25px;
+  color: #777064;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+@media (max-width: 360px) {
+  main { padding: 26px 14px 24px; }
+  .live { letter-spacing: 1.5px; font-size: 10px; }
+  .logo-wrap { width: 125px; height: 125px; margin-top: 28px; }
+  .join-btn { margin-top: 30px; border-radius: 22px; }
+  .stat { border-radius: 17px; }
+  .feature { padding: 10px; font-size: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="ticker" aria-label="Channel highlights">
+  <div class="ticker-track">
+    <span>★ JOIN TELEGRAM NOW</span>
+    <span>★ WINNER PICKS DAILY</span>
+    <span>★ FREE CHANNEL ACCESS</span>
+    <span>★ JOIN TELEGRAM NOW</span>
+    <span>★ WINNER PICKS DAILY</span>
+    <span>★ FREE CHANNEL ACCESS</span>
+  </div>
+</div>
+
+<main>
+  <div class="live">
+    <span class="live-dot"></span>
+    LIVE CHANNEL — FREE ACCESS
+  </div>
+
+  <div class="logo-wrap">
+    <img src="logo.jpg" alt="AAKASH SHARMA logo">
+    <span class="logo-dot"></span>
+  </div>
+
+  <h1>AAKASH<br>SHARMA</h1>
+  <div class="subtitle">T I P S</div>
+
+  <a class="join-btn"
+     id="joinButton"
+     href="https://t.me/+Q86fQgTQeVQ0ODJl"
+     target="_blank"
+     rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="currentColor"
+         aria-hidden="true">
+      <path d="M21.8 3.2a1.5 1.5 0 0 0-1.6-.25L2.5 9.8a1.5 1.5 0 0 0 .12 2.83l4.55 1.52 1.7 5.15a1.5 1.5 0 0 0 2.65.4l2.6-3.2 4.42 3.22a1.5 1.5 0 0 0 2.35-.93l2.1-13.95a1.5 1.5 0 0 0-1.19-1.64ZM9.2 13.4l8.7-6.1-6.8 7.5-.35 2.8-1.55-4.2Z"/>
+    </svg>
+    <span>JOIN FREE TELEGRAM CHANNEL</span>
+  </a>
+
+  <p class="redirect" aria-live="polite">
+    Redirect Telegram In <span id="countdown">30</span> seconds
+  </p>
+
+  <div class="divider">
+    <span class="trophy">♜</span>
+  </div>
+
+  <section class="stats" aria-label="Channel features">
+    <div class="stat">
+      <strong>DAILY</strong>
+      <small>UPDATES</small>
+    </div>
+    <div class="stat">
+      <strong>24/7</strong>
+      <small>SUPPORT</small>
+    </div>
+    <div class="stat">
+      <strong class="green">FREE</strong>
+      <small>ACCESS</small>
+    </div>
+  </section>
+
+  <section class="features" aria-label="Channel content">
+    <div class="feature"><b>♜</b> Cricket Updates</div>
+    <div class="feature"><b>♨</b> Match Analysis</div>
+    <div class="feature"><b>ϟ</b> Match Alerts</div>
+    <div class="feature"><b>◇</b> Channel News</div>
+  </section>
+
+  <div class="bottom-info">
+    <span><i class="active-dot"></i>Join our Telegram community</span>
+    <span class="verified"><b>✓</b> Channel Updates</span>
+  </div>
+
+  <p class="disclaimer">
+    For cricket updates and general information only.
+    No outcomes are guaranteed. Please verify information
+    independently and act responsibly.
+  </p>
+</main>
+
+<script>
+(function () {
+  const telegramLink = "https://t.me/+Q86fQgTQeVQ0ODJl";
+  const countdownElement = document.getElementById("countdown");
+  const joinButton = document.getElementById("joinButton");
+
+  let remaining = 30;
+  let redirected = false;
+
+  function redirectToTelegram() {
+    if (redirected) return;
+    redirected = true;
+    window.location.href = telegramLink;
+  }
+
+  joinButton.addEventListener("click", function () {
+    // The link opens directly when the visitor taps the button.
+  });
+
+  countdownElement.textContent = remaining;
+
+  const timer = window.setInterval(function () {
+    remaining -= 1;
+    countdownElement.textContent = Math.max(remaining, 0);
+
+    if (remaining <= 0) {
+      window.clearInterval(timer);
+      redirectToTelegram();
+    }
+  }, 1000);
+})();
+</script>
+
+</body>
+</html>
